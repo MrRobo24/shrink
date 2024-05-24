@@ -6,9 +6,8 @@ def init_db(app):
   app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///url_map.sqlite3"
   app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
   db.init_app(app)
-  
   with app.app_context():
-    db.create_all()  
+    db.create_all() 
 
 def insert_db(model):
   db.session.add(model)

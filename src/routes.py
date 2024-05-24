@@ -1,11 +1,16 @@
-from handlers import handleShrinkCall, handleLoadCall
+from handlers import Handler
 
-def init_routes(app):
-  @app.route("/shrink/<long_url>", methods=["POST"])
-  def shrink(long_url):
-    return handleShrinkCall(long_url)
+class Routes():
+  def __init__(self, app) -> None:
+    self.app = app
+    
+  def init_routes(self):
+    handler = Handler(self.app)
+    @self.app.route("/shrink/<long_url>", methods=["POST"])
+    def shrink(long_url):
+      return handler.handleShrinkCall(long_url)
 
-  @app.route("/<short_url>", methods=["GET"])
-  def load(short_url):
-    print(short_url)
-    return handleLoadCall(short_url)
+    @self.app.route("/<short_url>", methods=["GET"])
+    def load(short_url):
+      print(short_url)
+      return handler.handleLoadCall(short_url)
