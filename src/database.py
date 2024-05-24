@@ -10,8 +10,16 @@ def init_db(app):
     db.create_all() 
 
 def insert_db(model):
-  db.session.add(model)
-  db.session.commit()
+  try:
+    db.session.add(model)
+    db.session.commit()
+    return True
+  except Exception as e:
+    print("Exception:", e)
+    return False
 
 def find_one_db(model, short_url):
-  return db.session.query(model).filter_by(short_url=short_url).one_or_none()
+  try:
+    return db.session.query(model).filter_by(short_url=short_url).one_or_none()
+  except Exception as e:
+    print("Exception:", e)

@@ -5,7 +5,7 @@ class Routes():
     self.app = app
     
   def init_routes(self):
-    handler = Handler(self.app)
+    handler = Handler()
     @self.app.route("/shrink/<long_url>", methods=["POST"])
     def shrink(long_url):
       return handler.handleShrinkCall(long_url)
