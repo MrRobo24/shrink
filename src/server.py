@@ -4,7 +4,6 @@ from routes import Routes
 
 def start_app():
   app = Flask(__name__)
-  app.config.from_object('config.Config')
   
   init_db(app)
   Routes(app).init_routes()
