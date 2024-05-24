@@ -11,7 +11,7 @@ This app allows you to shorten long URLs and redirect to the original URL using 
 - **Method**: `POST`
 - **Description**: Shortens a given long URL and returns a unique short URL.
 - **Input**: 
-  - `long_url` (string): The long URL to be shortened. This is passed as a path parameter.
+  - `long_url` (string, example: www.google.com): The long URL to be shortened. This is passed as a path parameter.
 - **Output**: 
   - A JSON object containing the unique short URL.
 
@@ -26,7 +26,7 @@ This app allows you to shorten long URLs and redirect to the original URL using 
 - **Method**: `GET`
 - **Description**: Redirects to the original long URL using the shortened URL.
 - **Input**: 
-  - `short_url` (string): The short URL to be resolved. This is passed as a path parameter.
+  - `short_url` (string, example: gj-1sp-0): The short URL to be resolved. This is passed as a path parameter.
 - **Output**: 
   - Redirects to the original long URL.
 
