@@ -9,8 +9,8 @@ class Handler():
     return redirect("http://" + url_map.long_url) if url_map != None else abort(400, "URL fetch failed")
     
   def handleShrinkCall(self, long_url):
-    if not validate_long_url("https://" + long_url):
-      return abort(400, "Invalid URL provided")  
+    if not validate_long_url("http://" + long_url):
+      return abort(400, "Invalid URL provided")   
       
     short_url = generate_short_url(long_url)
     old_url_map: URL_Map = find_one_db(URL_Map, short_url)
